@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const categoriaSchema = new Schema(
     {
-        categoria: {
+        nombre_categoria: {
             type: String,
             required: true,
             unique: true,

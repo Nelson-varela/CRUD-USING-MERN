@@ -16,9 +16,9 @@ categoriaCtrl.getCategorias = async (req, res) => {
 
 categoriaCtrl.createCategoria = async (req, res) => {
     try {
-        const { categoria } = req.body;
+        const { nombre_categoria } = req.body;
 
-        const newCategoria = new Categoria({ categoria });
+        const newCategoria = new Categoria({ nombre_categoria });
         await newCategoria.save();
         res.json('Nueva categoria creada');
     } catch (e) {
@@ -33,4 +33,4 @@ categoriaCtrl.deleteCategoria = async (req, res) => {
     res.json('Categoria borrada');
 }
 
-module.exports = userCtrl;
+module.exports = categoriaCtrl;

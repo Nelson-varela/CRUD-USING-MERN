@@ -8,7 +8,7 @@ articuloCtrl.getArticulos = async (req, res) => {
 };
 
 articuloCtrl.createArticulo = async (req, res) => {
-    const { title, content, date, author } = req.body;
+    const { numero_registro, nombre, descripcion, categoria } = req.body;
     const newArticulo = new Articulo({
         numero_registro,
         nombre,
