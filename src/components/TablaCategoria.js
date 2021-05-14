@@ -14,7 +14,7 @@ export default class TablaCategoria extends Component {
     }
 
     getCategoria = async () => {
-        const res = await axios.get('http://localhost:4000/api/categorias');
+        const res = await axios.get('https://articlesbook-express.azurewebsites.net/api/categorias');
         this.setState({
             categorias: res.data
         });
@@ -27,7 +27,7 @@ export default class TablaCategoria extends Component {
     }
     onSubmit = async (e) => {
       e.preventDefault();
-      await axios.post('http://localhost:4000/api/categorias', {
+      await axios.post('https://articlesbook-express.azurewebsites.net/api/categorias', {
           nombre_categoria: this.state.nombre_categoria
       });
       this.setState({ nombre_categoria: '' });
@@ -37,7 +37,7 @@ export default class TablaCategoria extends Component {
     deleteCategoria = async (categoriaId) => {
       const response = window.confirm('¿Está seguro/a que quiere borrar esta categoria?');
       if (response) {
-          await axios.delete('http://localhost:4000/api/categorias/' + categoriaId);
+          await axios.delete('https://articlesbook-express.azurewebsites.net/api/categorias/' + categoriaId);
           this.getCategoria();
       }
   }

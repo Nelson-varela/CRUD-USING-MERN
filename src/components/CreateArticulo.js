@@ -16,7 +16,7 @@ export default class CreateArticulo extends Component {
     }
 
     async componentDidMount() {
-        const res = await axios.get('http://localhost:4000/api/categorias');
+        const res = await axios.get('https://articlesbook-express.azurewebsites.net/api/categorias');
         if (res.data.length > 0) {
             this.setState({
                 categorias: res.data.map(nombre_categoria => nombre_categoria.nombre_categoria),
@@ -25,7 +25,7 @@ export default class CreateArticulo extends Component {
         }
         if (this.props.match.params.id) {
             console.log(this.props.match.params.id)
-            const res = await axios.get('http://localhost:4000/api/articulos/' + this.props.match.params.id);
+            const res = await axios.get('https://articlesbook-express.azurewebsites.net/api/articulos/' + this.props.match.params.id);
             console.log(res.data)
             this.setState({
                 numero_registro: res.data.numero_registro,
@@ -50,7 +50,7 @@ export default class CreateArticulo extends Component {
                 imgUrl: this.state.imgUrl
             };
 
-            await axios.put('http://localhost:4000/api/articulos/' + this.state._id, updatedCategoria);
+            await axios.put('https://articlesbook-express.azurewebsites.net/api/articulos/' + this.state._id, updatedCategoria);
         } else {
             const newArticulo = {
                 numero_registro: this.state.numero_registro,
@@ -59,7 +59,7 @@ export default class CreateArticulo extends Component {
                 categoria: this.state.categoriaSelected,
                 imgUrl: this.state.imgUrl
             };
-            axios.post('http://localhost:4000/api/articulos', newArticulo);
+            axios.post('https://articlesbook-express.azurewebsites.net/api/articulos', newArticulo);
         }
         window.location.href = '/';
 

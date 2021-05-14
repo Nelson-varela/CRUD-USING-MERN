@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:4000/api/users' });
+const API = axios.create({ baseURL: 'https://articlesbook-express.azurewebsites.net/api/users' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {

@@ -12,14 +12,14 @@ async componentDidMount() {
 }
 
 getArticulos = async () => {
-    const res = await axios.get('http://localhost:4000/api/articulos')
+    const res = await axios.get('https://articlesbook-express.azurewebsites.net/api/articulos')
     this.setState({
         articulos: res.data
     });
 }
 
 deleteArticulo = async (articuloId) => {
-    await axios.delete('http://localhost:4000/api/articulos/' + articuloId);
+    await axios.delete('https://articlesbook-express.azurewebsites.net/api/articulos/' + articuloId);
     this.getArticulos();
 }
 
