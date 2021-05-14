@@ -6,6 +6,7 @@ const articuloSchema = new Schema(
         nombre: { type: String, required: true, trim: true},
         descripcion: { type: String, required: true, trim: true},
         categoria: { type: String },
+        imgUrl: { type: String, required: true}
     }, {
         timestamps: true
     });

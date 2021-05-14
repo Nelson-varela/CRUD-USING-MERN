@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 
+const auth = require('../controllers/auth')
+
 const { 
     getArticulos, 
     createArticulo, 

@@ -8,12 +8,13 @@ articuloCtrl.getArticulos = async (req, res) => {
 };
 
 articuloCtrl.createArticulo = async (req, res) => {
-    const { numero_registro, nombre, descripcion, categoria } = req.body;
+    const { numero_registro, nombre, descripcion, categoria, imgUrl } = req.body;
     const newArticulo = new Articulo({
         numero_registro,
         nombre,
         descripcion,
-        categoria
+        categoria,
+        imgUrl
     });
     await newArticulo.save();
     res.json('Nuevo articulo agregado');
@@ -30,12 +31,13 @@ articuloCtrl.deleteArticulo = async (req, res) => {
 }
 
 articuloCtrl.updateArticulo = async (req, res) => {
-    const { numero_registro, nombre, descripcion, categoria } = req.body;
+    const { numero_registro, nombre, descripcion, categoria, imgUrl } = req.body;
     await Articulo.findByIdAndUpdate(req.params.id, {
         numero_registro,
         nombre,
         descripcion,
-        categoria
+        categoria, 
+        imgUrl
     });
     res.json('Articulo actualizado');
 }
