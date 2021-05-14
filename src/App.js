@@ -9,6 +9,7 @@ import Nav from './components/Nav'
 import TablaCategoria from './components/TablaCategoria'
 import CreateArticulo from './components/CreateArticulo'
 import ListaArticulos from './components/ListaArticulos'
+import Auth from './components/Auth/Auth'
 import './App.css';
 
 function App() {
@@ -23,9 +24,10 @@ function App() {
         <Route path="/edit/:id" component={CreateArticulo}/>
         <Route path="/create" component={CreateArticulo} />
         <Route path="/categoria" component={TablaCategoria}/> 
+        <Route path="/login" exact component={Auth} />
       </div>
       </div>
-    </Router>
+  </Router>
     
   );
 }

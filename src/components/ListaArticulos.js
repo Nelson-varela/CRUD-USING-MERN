@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
 export default class ListaArticulos extends Component {
   state = {
     articulos: []
@@ -32,10 +31,10 @@ deleteArticulo = async (articuloId) => {
                     <div className="col-md-3 p-2">
                   <Card fluid color='green'>
                   <Card.Content key={articulo._id}>
-                  <Image
+                  <Image 
                     floated='right'
-                    size='mini'
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7DhptMSPO1SnEghptmmUYk1pEyhFnL8LgOQ&usqp=CAU'
+                    size='medium'
+                    src={articulo.imgUrl}
                   />
                   <Card.Header>{articulo.nombre}</Card.Header>
                   <Card.Meta>Numero de registro: {articulo.numero_registro}</Card.Meta>
@@ -46,6 +45,8 @@ deleteArticulo = async (articuloId) => {
                   <strong>Categoria: {articulo.categoria} </strong>
                   </Card.Description>
                 </Card.Content>
+                {
+                   
                 <Card.Content extra>
                   <div className='ui two buttons'>
                     <Button inverted color='red' onClick={() => this.deleteArticulo(articulo._id)}>
@@ -57,6 +58,7 @@ deleteArticulo = async (articuloId) => {
                     </Link>
                   </div>
                 </Card.Content>
+                  }
                 </Card>
                 </div>
               ))

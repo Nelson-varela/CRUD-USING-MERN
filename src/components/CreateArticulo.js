@@ -10,6 +10,7 @@ export default class CreateArticulo extends Component {
         descripcion: '',
         categoriaSelected: '',
         categorias: [],
+        imgUrl: '',
         editing: false,
         _id: ''
     }
@@ -31,6 +32,7 @@ export default class CreateArticulo extends Component {
                 nombre: res.data.nombre,
                 descripcion: res.data.descripcion,
                 categoriaSelected: res.data.nombre_categoria,
+                imgUrl: res.data.imgUrl,
                 editing: true,
                 _id: res.data._id       
              });
@@ -44,7 +46,8 @@ export default class CreateArticulo extends Component {
                 numero_registro: this.state.numero_registro,
                 nombre: this.state.nombre,
                 descripcion: this.state.descripcion,
-                categoria: this.state.categoriaSelected
+                categoria: this.state.categoriaSelected,
+                imgUrl: this.state.imgUrl
             };
 
             await axios.put('http://localhost:4000/api/articulos/' + this.state._id, updatedCategoria);
@@ -53,7 +56,8 @@ export default class CreateArticulo extends Component {
                 numero_registro: this.state.numero_registro,
                 nombre: this.state.nombre,
                 descripcion: this.state.descripcion,
-                categoria: this.state.categoriaSelected
+                categoria: this.state.categoriaSelected,
+                imgUrl: this.state.imgUrl
             };
             axios.post('http://localhost:4000/api/articulos', newArticulo);
         }
@@ -82,6 +86,7 @@ export default class CreateArticulo extends Component {
                                 onChange={this.onInputChange}
                                 name="categoriaSelected"
                                 required>
+                                    <option disabled selected>Seleccione</option>
 
                                 {
                                     this.state.categorias.map(nombre_categoria => (
@@ -127,8 +132,18 @@ export default class CreateArticulo extends Component {
                                 required>
                         </input>
                   </Form.Field>
-
-                    
+                  <Form.Field>
+                      <label>URL de la imagen</label>
+                  <input 
+                  type="url"
+                  className="form-control"
+                  placeholder="Escribe el link de la imagen"
+                  name="imgUrl"
+                  onChange={this.onInputChange}
+                  value={this.state.imgUrl}
+                  required
+                 />
+                  </Form.Field>
                   <Button inverted color="green" type='submit'>Submit</Button>
                 </Form>
                 </Card>

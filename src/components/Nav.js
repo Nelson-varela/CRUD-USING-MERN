@@ -22,6 +22,12 @@ export class Nav extends Component {
                         <li className="nav-item">
                             <Link to="/categoria" className="nav-link navbar-brand">Crear Categorias</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/login" className="nav-link navbar">Register-Login</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link navbar">Logout</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
